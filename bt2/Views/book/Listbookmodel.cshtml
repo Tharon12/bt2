@@ -1,0 +1,50 @@
+﻿@model IEnumerable<bt2.Models.book>
+
+@{
+    ViewBag.Title = "Listbookmodel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Danh sach book</h2>
+<a href="/book/createbook">Create book</a>
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Author
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                <img src="@item.Img_cover" width="95"  />
+            </td>
+            <td>
+                <a href="/book/editbook/@item.Id " > edit</a>
+            </td>
+            <td>
+                <a href="/book/delete/@item.Id "> delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

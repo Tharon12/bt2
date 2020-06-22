@@ -1,0 +1,39 @@
+﻿@model bt2.Models.book
+
+@{
+    ViewBag.Title = "editbook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="padding-left:80px" class="text-danger">edit book</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    <table>
+        <tr>
+            <td>title:</td>
+            <td>@Html.TextBoxFor(model => model.Title,  new { @class = "form-control", placeholder = "Title" })</td>
+        </tr>
+        <tr>
+            <td>author:</td>
+            <td>@Html.TextBoxFor(model => model.Author,  new { @class = "form-control", placeholder = "Author" })</td>
+        </tr>
+        <tr>
+            <td>Img cover</td>
+            <td>@Html.TextBoxFor(model => model.Img_cover,  new { @class = "form-control", placeholder = "Img_cover" })</td>
+        </tr>
+        <tr style="text-align:center;padding-top:20px">
+            <td colspan="2">
+                <input type="submit" value="Save Book" class="btn btn-danger" />
+            </td>
+        </tr>
+    </table>
+}
+<p></p>
+<div>
+    <a href="/book/Listbookmodel">Back to list</a>
+</div>

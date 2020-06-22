@@ -1,0 +1,28 @@
+﻿@model bt2.Models.book
+
+@{
+    ViewBag.Title = "deletebook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="padding-left:80px" class="text-danger">Delete book</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+
+    
+        <tr style="text-align:center;padding-top:20px">
+            <td colspan="2">
+                <input type="submit" value="delete Book" class="btn btn-danger" />
+            </td>
+        </tr>
+
+}
+<p></p>
+<div>
+    <a href="/book/Listbookmodel">Back to list</a>
+</div>
+
